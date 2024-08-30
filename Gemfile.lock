@@ -281,6 +281,7 @@ DEPENDENCIES
   bootstrap (~> 5.2)
   debug
   error_highlight (>= 0.4.0)
+  ffi (~> 1.9, >= 1.9.10)
   font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder
