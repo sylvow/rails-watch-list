@@ -1,0 +1,12 @@
+<div class="container p-4">
+  <h1>Create a list here </h1>
+  <div class="container">
+    <%= simple_form_for @list do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit %>
+    <% end %>
+  </div>
+  <div class="container">
+    <i class="fa-solid fa-arrow-left-long"></i><%= link_to ' Back to all lists', lists_path %>
+  </div>
+</div>

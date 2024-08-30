@@ -1,0 +1,42 @@
+<div class="row p-1">
+  <p> <i class="fa-solid fa-arrow-left-long"></i> <%= link_to 'Back to all lists', lists_path %></p>
+</div>
+
+<div class="container p-4">
+  <h1>My <%= @list.name %> movies</h1>
+  <div class="container">
+    <% @list.bookmarks.each do |bookmark| %>
+    <div class="row">
+      <h4><%= bookmark.movie.title %></h4>
+      <p style="text-indent:20px;"><i><%= bookmark.comment %> - <%= link_to "x", bookmark_path(bookmark),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></i></p>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="container mt-4">
+    <h3> Add a bookmark for a <%= @list.name %> movie</h3>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :movie_id, collection: Movie.all %>
+    <%= f.submit "Create bookmark", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="container mt-4">
+    <h3> Leave a review for this <%= @list.name %> list</h3>
+    <%= simple_form_for [@list, @review] do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :rating, collection: 0..5 %>
+      <%= f.submit "Leave review", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="container mt-4">
+    <h3>What they think of this <%= @list.name %> list</h3>
+    <ul>
+      <% @list.reviews.each do |review| %>
+      <li><%= review.rating %> - <%= review.comment %> </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
