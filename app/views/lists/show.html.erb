@@ -15,6 +15,13 @@
   </div>
 
   <div class="container mt-4">
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit 'Soumettre' %>
+    <% end %>
+  </div>
+
+  <div class="container mt-4">
     <h3> Add a bookmark for a <%= @list.name %> movie</h3>
     <%= simple_form_for [@list, @bookmark] do |f| %>
     <%= f.input :comment %>

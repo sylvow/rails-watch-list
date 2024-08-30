@@ -7,6 +7,7 @@ gem "rails", "~> 7.1.4"
 
 gem 'ffi', '~> 1.16.3'
 gem "dotenv-rails"
+gem "cloudinary"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
